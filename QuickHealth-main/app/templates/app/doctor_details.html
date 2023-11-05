@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    {% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Medilab Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+   
+  <link href="{% static '/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style_navbar.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style_doctor_details.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top" >
+    <div class="container-fluid d-flex align-items-center" style="height: 37px;">
+
+      <!--h1 class="logo me-auto"><a href="index.html">QuickHealth</a></h1-->
+      <h1 class="logo me-auto" style="margin-left: 60px; color: #444444;">Quick<span style="color: #1977cc; font-size: 30px;">Health</span></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+         
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline"></span>Emergency</a>
+      <a href="{% url 'LandingPage' %}" class="appointment-btn scrollto" style="margin-right: 50px;">
+      {% csrf_token %}  <span class="d-none d-md-inline"></span>Home</a>
+
+    </div>
+  </header><!-- End Header -->
+    
+  <div class="container" id="container" style="margin-top: 80px; height: 600px; width: 450px;">
+        <div class="form-container sign-in-container" style="width: 100%;">
+            <form action="{% url 'login' %}" method="post" style="display: inline;"> 
+                {% csrf_token %}
+                
+                <h1 style="margin-top: 10px; font-size: 30px; margin-bottom: 10px;">Fill these Details</h1>
+                <label style="color: red;">{{msg}}</label>
+                <label style="color: green;">{{msg1}}</label>
+                <!--div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span-->
+            
+                
+                  <span style="font-size: medium; float: left; margin-top: 15px;">Age:</span>
+                  <input type="number" name="age" value="1" style="float: left; width: 70px; font-size: small; margin-left: 5px; margin-right: 20px;">
+                  <span style="font-size: medium; float: left; margin-top: 15px;">Experience:</span>
+                  <input type="number" name="exp" value="1" style="float: left; width: 70px; font-size: small; margin-left: 5px; margin-right: 5px;">
+                  <span style="font-size: medium; float: left; margin-top: 15px;">years</span>
+                  <span style="float: left; margin-top: 17px; font-size: medium; margin-right: 10px; margin-left: 100px;">Gender:</span>
+                  <input required type="radio" name="gender" value="doctor" style="float: left; width: 20px; margin-right: 1px; margin-top: 22px;">
+                  <label for="male" style="float: left; width: 50px; margin-top: 18px; margin-right: 10px;">Male</label>
+                  <input required type="radio" name="gender" value="patient" style="float: left; width: 20px; margin-right: 1px; margin-top: 22px;">
+                  <label for="female" style="float: left; width: 50px; margin-top: 18px;">Female</label>
+                  <span style="font-size: medium; float: left; margin-top: 25px; margin-left: 200px;">Slot 1:</span>
+                  <input type="time" name="slot1" value="1" style="float: left; width: 70px; font-size: small; margin-left: 5px; margin-right: 20px; margin-top: 15px; ">
+                  <select name="speciality" id="doctor" class="form-select" style="font-size: small; width: 80px; float: left; margin-top: 20px;">
+                    <option value="AM">AM</option>
+                  <button style="border: 1px solid #327bf8;
+                background-color: #327bf8; display: flex; justify-content: center;  margin-top: 460px; margin-left: 100px;">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

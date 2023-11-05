@@ -1,0 +1,466 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>QuickHealth</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+
+  <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+   
+  <link href="{% static '/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style_details.css' %}" rel="stylesheet">
+
+  <!-- <style>
+    body{
+        background-color: #f1f7fd;
+    }
+</style> -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function()
+    {
+      $('.chkcvalues').click(function()
+      {
+        var txt = "";
+        $('.chkcvalues:checked').each(function()
+        {
+            txt+=$(this).val()+","
+        });
+        txt = txt.substring(0, txt.length-1);
+        $('#txtvalues').val(txt);
+      });
+    });
+  </script>
+  <script>
+         
+    function getCheckboxValue() 
+    {  
+      slots = document.getElementById("txtvalues").value;
+      const sl = slots.split(",");
+
+      if((sl.length==0)||(sl.length>4))
+      {
+        document.getElementById("js").innerHTML="Select atleast 1 and atmost 4 slots.";
+      }
+      else
+      {
+        document.getElementById("js").innerHTML="";
+      }
+
+      var val1 = document.getElementById("val_exp").innerHTML;
+      var val2 = document.getElementById("js").innerHTML;
+      var val3 = document.getElementById("val_fees").innerHTML;
+      const button = document.getElementById("sub");
+
+      if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!=""))
+      {
+        button.disabled = true;
+      }
+      else
+      {
+        button.disabled = false;
+      }
+
+    }
+
+      function validate_exp()
+      {
+        var experience = document.getElementById("expp").value;
+        var exp = parseInt(experience)
+        if((exp>50)||(exp<1))
+        {
+          document.getElementById("val_exp").innerHTML="Invalid experience.";
+        }
+        else if(experience.trim()=="")
+        {
+          document.getElementById("val_exp").innerHTML="Please enter your experience.";
+        }
+        else
+        {
+          document.getElementById("val_exp").innerHTML="";
+        }
+
+        var val1 = document.getElementById("val_exp").innerHTML;
+        var val2 = document.getElementById("js").innerHTML;
+        var val3 = document.getElementById("val_fees").innerHTML;
+        const button = document.getElementById("sub");
+
+        if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!=""))
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+      }
+
+      function validate_fees()
+      {
+        var fees = document.getElementById("feess").value;
+        var f = parseInt(fees)
+        if((f>5000)||(f<0))
+        {
+          document.getElementById("val_fees").innerHTML="Invalid fees.";
+        }
+        else if(fees.trim()=="")
+        {
+          document.getElementById("val_fees").innerHTML="Please enter your fees.";
+        }
+        else
+        {
+          document.getElementById("val_fees").innerHTML="";
+        }
+
+        var val1 = document.getElementById("val_exp").innerHTML;
+        var val2 = document.getElementById("js").innerHTML;
+        var val3 = document.getElementById("val_fees").innerHTML;
+        const button = document.getElementById("sub");
+
+        if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!=""))
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+      }
+
+      // function validate_btn()
+      // {
+      //   var val1 = document.getElementById("val_exp").innerHTML;
+      //   var val2 = document.getElementById("js").innerHTML;
+      //   var val3 = document.getElementById("val_fees").innerHTML;
+      //   const button = document.getElementById("sub");
+
+      //   if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!=""))
+      //   {
+      //     button.disabled = true;
+      //     document.getElementById("val_btn").innerHTML="Disabled";
+      //   }
+      //   else
+      //   {
+      //     button.disabled = false;
+      //     document.getElementById("val_btn").innerHTML="Enabled";
+      //   }
+      // }
+    // var count = 0;
+
+    // var check1 = document.getElementById("check-1").value;
+    // var check2 = document.getElementById("check-2").value;
+    // var check3 = document.getElementById("check-3").value;
+    // var check4 = document.getElementById("check-4").value;
+    // var check5 = document.getElementById("check-5").value;
+    // var check6 = document.getElementById("check-6").value;
+    // var check7 = document.getElementById("check-7").value;
+    // var check8 = document.getElementById("check-8").value;
+    // var check9 = document.getElementById("check-9").value;
+    // var check10 = document.getElementById("check-10").value;
+    // var check11 = document.getElementById("check-11").value;
+    // var check12 = document.getElementById("check-12").value;
+
+    
+    // if (check1) {
+    //   count = count + 1;
+    
+
+    // }
+    
+    // if (check2) {
+    //   count = count + 1;
+    // }
+
+    // // var check3 = document.getElementById("check-3");
+    // if (check3) {
+    //   count = count + 1;
+    // }
+
+    // if (check4) {
+    //   count = count + 1;
+    // }
+
+    // if (check5) {
+    //   count = count + 1;
+    // }
+
+    // if (check6) {
+    //   count = count + 1;
+    // }
+
+    // if (check7) {
+    //   count = count + 1;
+    // }
+
+    // if (check8) {
+    //   count = count + 1;
+    // }
+
+    // if (check9) {
+    //   count = count + 1;
+    // }
+
+    // if (check10) {
+    //   count = count + 1;
+    // }
+
+    // if (check11) {
+    //   count = count + 1;
+    // }
+
+    // if (check12) {
+    //   count = count + 1;
+    // }
+
+  
+
+    //       if((count<=4)&&(count>=1)){
+    //           document.getElementById("js").innerHTML="select less than 4";
+    //       }
+    // }
+  </script>
+</head>
+<body>
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="#" class="logo me-auto"><img src="{% static 'images/pulse3.png' %}" alt="" class="img-fluid"></a> Quick<span style="color: #1977cc;">Health</span></h1>
+      <!-- <a href="#" class="appointment-btn scrollto">
+        <span class="d-none d-md-inline"></span>Emergency</a>
+      <a href="{% url 'LandingPage' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline"></span>Home</a> -->
+    </div>
+  </header>
+
+  <div class="login-root">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1; margin-top: 30px;">
+      <div class="loginbackground box-background--white padding-top--64" style=" background-color: #e3e8ee;">
+        <div class="loginbackground-gridContainer">
+          <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+            </div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9; margin-top: 50px;">
+        <!-- <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+          <h1 style="font-weight: bold;"><a href="http://blog.stackfindover.com/" rel="dofollow"><span style="color: #444444;">Quick</span><span>Transfer</span></a></h1>
+        </div> -->
+        <div class="formbg-outer">
+          <div class="formbg">
+            <div class="formbg-inner padding-horizontal--48">
+              <center><span class="padding-bottom--15" style="font-size: 35px; margin-bottom: 20px; font-weight: bold; color: #1977cc;">Fill Details</span></center>
+              <form action="{% url 'details' %}" method="post" id="stripe-login">
+                  {% csrf_token %}
+                  <center>
+                <div class="field padding-bottom--24">
+                  <label style="font-weight: bold; font-size: large; color: #444444;">Enter years of Experience:</label>
+                  <input oninput="validate_exp();" type="number" name="years" id="expp" required> <br/>
+                  <span id="val_exp" style="color: red;"></span>
+                  <input required type="text" name="username" class="form-control" placeholder="{{u_name}}" value="{{u_name}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" style="display: none; visibility: hidden;">
+                  <!-- <input required type="text" name="p_uname" class="form-control" placeholder="{{request.session.Username}}" value="{{request.session.Username}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" style="display: none; visibility: hidden;"> -->
+                  <!-- <button formaction="{% url 'balance' %}" id="balance">View Balance</button> -->
+                  <!-- {% csrf_token %} -->
+                </div>
+                <div class="field padding-bottom--24">
+                  <!-- <div class="grid--50-50"> -->
+                    <label style="font-weight: bold; font-size: large; color: #444444; margin-top: 15px;">Select the time slots in which you are available: (Select atleast 1 slot and atmost 4 slots):</label>
+                    <!-- <span style="padding-bottom: 10px; margin-top: 15px;" for="password">Enter the amount</span> -->
+                    <!-- <div class="reset-pass">
+                      <a href="#">Forgot your password?</a>
+                    </div> -->
+                  <!-- </div> -->
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="10:00-10:30 AM" id="check-1" class="chkcvalues">
+                    10:00-10:30 AM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="10:30-11:00 AM" id="check-2" class="chkcvalues">
+                    10:30-11:00 AM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="11:00-11:30 AM" id="check-3" class="chkcvalues">
+                    11:00-11:30 AM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="12:00-12:30 PM" id="check-4" class="chkcvalues">
+                    12:00-12:30 PM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="2:00-2:30 PM" id="check-5" class="chkcvalues">
+                    2:00-2:30 PM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="2:30-3:00 PM" id="check-6" class="chkcvalues">
+                    2:30-3:00 PM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="3:00-3:30 PM" id="check-7" class="chkcvalues">
+                    3:00-3:30 PM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="3:30-4:00 PM" id="check-8" class="chkcvalues">
+                    3:30-4:00 PM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="4:00-4:30 PM" id="check-9" class="chkcvalues">
+                    4:00-4:30 PM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="4:30-5:00 PM" id="check-10" class="chkcvalues">
+                    4:30-5:00 PM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="5:00-5:30 PM" id="check-11" class="chkcvalues">
+                    5:00-5:30 PM
+                  <br>
+                  <input type="checkbox" onchange="getCheckboxValue();" name="check[]" value="5:30-6:00 PM" id="check-12" class="chkcvalues">
+                    5:30-6:00 PM
+                  <br>
+      
+                  <input readonly required type="text" name="slots" id="txtvalues" placeholder="Selected time slots" style="width: 480px; text-align: center; margin-top: 10px;"> <br/> 
+                  <span id="js" style="color: red;"></span>
+                  <!-- <input type="number" name="paisa"> -->
+                </div>
+                <div class="field padding-bottom--24">
+                  <label style="font-weight: bold; font-size: large; color: #444444; margin-top: 15px;">Enter your consulting fees:</label>
+                  <input oninput="validate_fees();" type="number" name="fees" id="feess" required> </br>
+                  <span id="val_fees" style="color: red;"></span>
+                </div>
+                <!-- <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
+                  <label for="checkbox">
+                    <input type="checkbox" name="checkbox"> Stay signed in for a week
+                  </label>
+                </div> -->
+                <div class="field padding-bottom--24">
+                  <input type="submit" id="sub" value="Submit" style="margin-top: 15px;">
+                  <span id="val_btn" style="color: red;"></span>
+                </div>
+                <!-- <div class="field">
+                    <center><span style="color: green; font-weight: bold;">{{msg}}</span></center>
+                </div> -->
+              </center>
+              </form>
+            </div>
+          </div>
+          <!-- <div class="footer-link padding-top--24">
+            <span class="">Don't have an account? <a href="">Sign up</a></span>
+            <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+              <span><a href="#">© Stackfindover</a></span>
+              <span><a href="#">Contact</a></span>
+              <span><a href="#">Privacy & terms</a></span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <form action="{% url 'details' %}" method="post">
+    {% csrf_token %}
+<div style="position: relative; top: 90px;">
+    <center>
+        <h3>Doctor's details</h3>
+        <label for="">Enter years of experience: </label>
+        <input type="number" name="years" id="" required>
+        <input required type="text" name="username" class="form-control" placeholder="{{u_name}}" value="{{u_name}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" style="display: none; visibility: hidden;">
+          
+          <br>
+          <br>
+          <br>
+
+        <div>
+          Select the time slots in which you are available: (Select atleast 1 slot and atmost 4 slots):
+          <br>
+          <input type="checkbox" name="check[]" value="10:00-10:30 AM" id="check-1" class="chkcvalues">
+            10:00-10:30 AM
+            <br>
+          <input type="checkbox" name="check[]" value="10:30-11:00 AM" id="check-2" class="chkcvalues">
+            10:30-11:00 AM
+            <br>
+          <input type="checkbox" name="check[]" value="11:00-11:30 AM" id="check-3" class="chkcvalues">
+            11:00-11:30 AM
+            <br>
+          <input type="checkbox" name="check[]" value="12:00-12:30 PM" id="check-4" class="chkcvalues">
+            12:00-12:30 PM
+            <br>
+          <input type="checkbox" name="check[]" value="2:00-2:30 PM" id="check-5" class="chkcvalues">
+            2:00-2:30 PM
+            <br>
+          <input type="checkbox" name="check[]" value="2:30-3:00 PM" id="check-6" class="chkcvalues">
+            2:30-3:00 PM
+            <br>
+          <input type="checkbox" name="check[]" value="3:00-3:30 PM" id="check-7" class="chkcvalues">
+            3:00-3:30 PM
+            <br>
+          <input type="checkbox" name="check[]" value="3:30-4:00 PM" id="check-8" class="chkcvalues">
+            3:30-4:00 PM
+            <br>
+          <input type="checkbox" name="check[]" value="4:00-4:30 PM" id="check-9" class="chkcvalues">
+            4:00-4:30 PM
+            <br>
+          <input type="checkbox" name="check[]" value="4:30-5:00 PM" id="check-10" class="chkcvalues">
+            4:30-5:00 PM
+            <br>
+          <input type="checkbox" name="check[]" value="5:00-5:30 PM" id="check-11" class="chkcvalues">
+            5:00-5:30 PM
+            <br>
+          <input type="checkbox" name="check[]" value="5:30-6:00 PM" id="check-12" class="chkcvalues">
+            5:30-6:00 PM
+            <br>
+      
+            <input onblur="getCheckboxValue();" required type="text" name="slots" id="txtvalues" placeholder="Selected time slots" style="width: 480px; text-align: center;">
+           <span id="js" style="color: red;"></span>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div>
+            Your consulting fees: <input type="number" name="fees" id="" required>
+            
+        </div>
+        
+        <br><br>
+
+        <input type="submit" name="" id="but1" value="Submit" class="appointment-btn scrollto">
+    
+      </div>
+    </center>
+</div>
+</form> -->
+</body>

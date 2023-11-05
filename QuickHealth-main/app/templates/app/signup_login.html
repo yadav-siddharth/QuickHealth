@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>QuickHealth</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+
+  <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+   
+  <link href="{% static '/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/signup_login.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style_navbar.css' %}" rel="stylesheet">
+
+  <script>
+
+    function validate_uname()
+    {
+        var u_nme = document.getElementById("username").value;
+        var re = /^[A-Za-z0-9]+$/;
+        
+        if(u_nme.trim()=="")
+        {
+            document.getElementById("val_uname").innerHTML="Please enter username.";
+        }
+        else if(!re.test(u_nme))
+        {
+            document.getElementById("val_uname").innerHTML="Invalid username.";
+        }
+        else
+        {
+            document.getElementById("val_uname").innerHTML="";
+        }
+
+        var val1 = document.getElementById("val_uname").innerHTML;
+        var val2 = document.getElementById("val_pass").innerHTML;
+        var val3 = document.getElementById("val_fname").innerHTML;
+        var val4 = document.getElementById("val_lname").innerHTML;
+        var val5 = document.getElementById("val_contact").innerHTML;
+        var val6 = document.getElementById("val_email").innerHTML;
+        const button = document.getElementById("signup_btn");
+
+        if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!="")||(val4.trim()!="")||(val5.trim()!="")||(val6.trim()!=""))
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+    }
+
+    function validate_pass()
+    {
+        var pw = document.getElementById("password").value;
+        
+        if(pw.trim()=="")
+        {
+            document.getElementById("val_pass").innerHTML="Please enter password.";
+        }
+        else if(!((pw.match(/[a-z]/g))&&(pw.match(/[A-Z]/g))&&(pw.match(/[0-9]/g))&&(pw.match(/[^\w]/g))&&(pw.length>=5)&&(pw.length<=10)))
+        {
+            document.getElementById("val_pass").innerHTML="Minimum 5 and Maximum 10 characters with atleast 1 capital letter, 1 small letter, 1 special character and 1 number"; 
+        }
+        else
+        {
+            document.getElementById("val_pass").innerHTML="";
+        }
+
+        var val1 = document.getElementById("val_uname").innerHTML;
+        var val2 = document.getElementById("val_pass").innerHTML;
+        var val3 = document.getElementById("val_fname").innerHTML;
+        var val4 = document.getElementById("val_lname").innerHTML;
+        var val5 = document.getElementById("val_contact").innerHTML;
+        var val6 = document.getElementById("val_email").innerHTML;
+        const button = document.getElementById("signup_btn");
+
+        if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!="")||(val4.trim()!="")||(val5.trim()!="")||(val6.trim()!=""))
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+    }
+
+    function validate_fname()
+    {
+        var f_nme = document.getElementById("fname").value;
+        var re = /^[A-Za-z]+$/;
+        
+        if(f_nme.trim()=="")
+        {
+            document.getElementById("val_fname").innerHTML="Please enter first name.";
+        }
+        else if(!re.test(f_nme))
+        {
+            document.getElementById("val_fname").innerHTML="Invalid first name.";
+        }
+        else
+        {
+            document.getElementById("val_fname").innerHTML="";
+        }
+
+        var val1 = document.getElementById("val_uname").innerHTML;
+        var val2 = document.getElementById("val_pass").innerHTML;
+        var val3 = document.getElementById("val_fname").innerHTML;
+        var val4 = document.getElementById("val_lname").innerHTML;
+        var val5 = document.getElementById("val_contact").innerHTML;
+        var val6 = document.getElementById("val_email").innerHTML;
+        const button = document.getElementById("signup_btn");
+
+        if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!="")||(val4.trim()!="")||(val5.trim()!="")||(val6.trim()!=""))
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+    }
+
+    function validate_lname()
+    {
+        var l_nme = document.getElementById("lname").value;
+        var re = /^[A-Za-z]+$/;
+        
+        if(l_nme.trim()=="")
+        {
+            document.getElementById("val_lname").innerHTML="Please enter last name.";
+        }
+        else if(!re.test(l_nme))
+        {
+            document.getElementById("val_lname").innerHTML="Invalid last name.";
+        }
+        else
+        {
+            document.getElementById("val_lname").innerHTML="";
+        }
+
+        var val1 = document.getElementById("val_uname").innerHTML;
+        var val2 = document.getElementById("val_pass").innerHTML;
+        var val3 = document.getElementById("val_fname").innerHTML;
+        var val4 = document.getElementById("val_lname").innerHTML;
+        var val5 = document.getElementById("val_contact").innerHTML;
+        var val6 = document.getElementById("val_email").innerHTML;
+        const button = document.getElementById("signup_btn");
+
+        if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!="")||(val4.trim()!="")||(val5.trim()!="")||(val6.trim()!=""))
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+    }
+
+    function validate_num()
+    {
+        var contact = document.getElementById("contact").value;
+        var re = /^[0-9]{10}$/;
+
+        if(contact.trim()=="")
+        {
+            document.getElementById("val_contact").innerHTML="Please enter contact number.";
+        }
+        else if(!re.test(contact))
+        {
+            document.getElementById("val_contact").innerHTML="Invalid contact number."; 
+        }
+        else
+        {
+            document.getElementById("val_contact").innerHTML="";
+        }
+
+        var val1 = document.getElementById("val_uname").innerHTML;
+        var val2 = document.getElementById("val_pass").innerHTML;
+        var val3 = document.getElementById("val_fname").innerHTML;
+        var val4 = document.getElementById("val_lname").innerHTML;
+        var val5 = document.getElementById("val_contact").innerHTML;
+        var val6 = document.getElementById("val_email").innerHTML;
+        const button = document.getElementById("signup_btn");
+
+        if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!="")||(val4.trim()!="")||(val5.trim()!="")||(val6.trim()!=""))
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+    }
+
+    function validate_email()
+    {
+        var email = document.getElementById("email").value;
+        var re = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+
+        if (email.trim()=="")
+        {
+            document.getElementById("val_email").innerHTML="Please enter email.";
+        }
+        else if (!re.test(email))
+        {
+            document.getElementById("val_email").innerHTML="Invalid email."; 
+        }
+        else
+        {
+            document.getElementById("val_email").innerHTML=""; 
+        }
+
+        var val1 = document.getElementById("val_uname").innerHTML;
+        var val2 = document.getElementById("val_pass").innerHTML;
+        var val3 = document.getElementById("val_fname").innerHTML;
+        var val4 = document.getElementById("val_lname").innerHTML;
+        var val5 = document.getElementById("val_contact").innerHTML;
+        var val6 = document.getElementById("val_email").innerHTML;
+        const button = document.getElementById("signup_btn");
+
+        if((val1.trim()!="")||(val2.trim()!="")||(val3.trim()!="")||(val4.trim()!="")||(val5.trim()!="")||(val6.trim()!=""))
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+    }
+</script>
+
+</head>
+
+<body style="background-image: url('{% static 'images/signup_bg14.jpeg' %}');
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;">
+    <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top" >
+    <div class="container-fluid d-flex align-items-center" style="height: 37px;">
+
+      <!--h1 class="logo me-auto"><a href="index.html">QuickHealth</a></h1-->
+      <h1 class="logo me-auto" style="margin-left: 60px; color: #444444;"><a href="{% url 'LandingPage' %}" class="logo me-auto"><img src="{% static 'images/pulse3.png' %}" alt="" class="img-fluid"></a> Quick<span style="color: #1977cc; font-size: 30px;">Health</span></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+         
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="{% url 'details1' %}" class="appointment-btn scrollto"> 
+          {% csrf_token %} <span class="d-none d-md-inline"></span>Emergency</a>
+      <a href="{% url 'LandingPage' %}" class="appointment-btn scrollto" style="margin-right: 50px;">
+      {% csrf_token %}  <span class="d-none d-md-inline"></span>Home</a>
+
+    </div>
+  </header><!-- End Header -->
+    <div class="container" id="container" style="margin-top: 120px; height: 600px;">
+        <div class="form-container sign-up-container">
+            <form action="{% url 'insert' %}" method="post">
+                {% csrf_token %}
+                <h1 style="margin-bottom: 10px; font-size: 30px;">Create Account</h1>
+                <label style="color: red;">{{msg}}</label>
+                <input type="text" id="username" name="username" placeholder="Username" oninput="validate_uname();" style="font-size: small;"/>
+                <span id="val_uname" style="color: red;"></span>
+                <input type="password" id="password" name="password" placeholder="Password" oninput="validate_pass();" style="font-size: small;"/>
+                <span id="val_pass" style="color: red;"></span>
+                <input type="text" id="fname" name="fname" placeholder="First Name" oninput="validate_fname();" style="font-size: small;"/>
+                <span id="val_fname" style="color: red;"></span>
+                <input type="text" id="lname" name="lname" placeholder="Last Name" oninput="validate_lname();" style="font-size: small;"/>
+                <span id="val_lname" style="color: red;"></span>
+                <input type="email" id="email" name="email" placeholder="Email" oninput="validate_email();" style="font-size: small;"/>
+                <span id="val_email" style="color: red;"></span>
+                <input type="tel" id="contact" name="contact" placeholder="Contact" oninput="validate_num();" style="font-size: small;"/>
+                <span id="val_contact" style="color: red;"></span>
+                <div style="all: none;">
+                    <span style="float: left; margin-top: 7px; font-size: medium; margin-right: 20px;">Category:</span>
+                    <input required type="radio" id="doctor" name="category" value="doctor" style="float: left; width: 20px; margin-right: 1px; margin-top: 12px;">
+                    <label for="doctor" style="float: left; width: 50px; margin-top: 8px; margin-right: 25px;">Doctor</label>
+                    <input required type="radio" id="patient" name="category" value="patient" style="float: left; width: 20px; margin-right: 1px; margin-top: 12px;">
+                    <label for="patient" style="float: left; width: 50px; margin-top: 8px;">Patient</label>
+                </div>
+                <div style="all: none;">
+                    <span style="float: left; font-size: medium; margin-top: 20px; margin-left: 15px;">Speciality:</span>
+                    <div class="col-md-4 form-group mt-3" style="width: 170px; margin-bottom: 10px; margin-left: 115px;">
+                        <select name="speciality" id="doctor" class="form-select" style="font-size: small;">
+                        <option value="N/A">N/A</option>
+                        <option value="Cardiologist">Cardiologist</option>
+                        <option value="Neurologist">Neurologist</option>
+                        <option value="Dermatologist">Dermatologist</option>
+                        <option value="ENT">ENT</option>
+                        <option value="Orthopedics">Orthopaedic</option>
+                        <option value="Dentist">Dentist</option>
+                        </select>
+                        <div class="validate"></div>
+                    </div>
+                </div>
+                <button id="signup_btn" style="margin-top: 10px; border: 1px solid #327bf8;
+                background-color: #327bf8;">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="{% url 'login' %}" method="post"> 
+                {% csrf_token %}
+                
+                <h1 style="margin-bottom: 20px;">Sign in</h1>
+                <label style="color: red;">{{msg}}</label>
+                <label style="color: green;">{{msg1}}</label>
+                <!--div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span-->
+                <input type="text" placeholder="Username" name="username" style="font-size: medium;"/>
+                <input type="password" placeholder="Password" name="password" style="font-size: medium;"/>
+                <div style="all: none;">
+                    <span style="float: left; margin-top: 7px; font-size: medium; margin-right: 20px;">Category:</span>
+                    <input required type="radio" id="doctor" name="category" value="doctor" style="float: left; width: 20px; margin-right: 1px; margin-top: 12px;">
+                    <label for="doctor" style="float: left; width: 50px; margin-top: 8px; margin-right: 25px;">Doctor</label>
+                    <input required type="radio" id="patient" name="category" value="patient" style="float: left; width: 20px; margin-right: 1px; margin-top: 12px;">
+                    <label for="patient" style="float: left; width: 50px; margin-top: 8px;">Patient</label>
+                </div>
+                <a href="{% url 'signup' %}">Forgot your password?</a>
+                {% csrf_token %}
+                <label style="color: red; margin-bottom: 10px;">{{msg2}}</label>
+                <button style="border: 1px solid #327bf8;
+                background-color: #327bf8;">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay" style="background: #327bf8;
+            background: -webkit-linear-gradient(to right, #56b6ff, #327bf8);
+            background: linear-gradient(to right, #56b6ff, #327bf8);"  >
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      <script src="{% static 'js/signup_login.js' %}" type="text/javascript"></script>
+</body>
+</html>

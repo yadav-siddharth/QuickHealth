@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>QuickHealth</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+
+  <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+   
+  <link href="{% static '/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style_wallet.css' %}" rel="stylesheet">
+
+  <script>
+
+    function validate_money()
+      {
+        var money = document.getElementById("moneyy").value;
+        var m = parseInt(money)
+        if((m>10000)||(m<0))
+        {
+          document.getElementById("val_money").innerHTML="Invalid amount.";
+        }
+        else if(money.trim()=="")
+        {
+          document.getElementById("val_money").innerHTML="Please enter a amount.";
+        }
+        else
+        {
+          document.getElementById("val_money").innerHTML="";
+        }
+
+        var val1 = document.getElementById("val_money").innerHTML;
+        const button = document.getElementById("add");
+
+        if(val1.trim()!="")
+        {
+          button.disabled = true;
+        }
+        else
+        {
+          button.disabled = false;
+        }
+      }
+  </script>
+
+  <!-- <style>
+    body{
+        background-color: #f1f7fd;;
+    }
+</style> -->
+</head>
+<body>
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto" style="color: #444444;"><a href="{% url 'main' %}" class="logo me-auto"><img src="{% static 'images/pulse3.png' %}" alt="" class="img-fluid"></a> Quick<span style="color: #1977cc;">Health</span></h1>
+      <a href="#" class="appointment-btn scrollto">
+        <span class="d-none d-md-inline"></span>Emergency</a>
+      <a href="{% url 'main' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline"></span>Home</a>
+    </div>
+  </header>
+
+  <div class="login-root">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1; margin-top: 30px;">
+      <div class="loginbackground box-background--white padding-top--64" >
+        <div class="loginbackground-gridContainer">
+          <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+            </div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+          <h1 style="font-weight: bold;"><a href="http://blog.stackfindover.com/" rel="dofollow"><span style="color: #444444;">Quick</span><span style="color: #1977cc;">Transfer</span></a></h1>
+        </div>
+        <div class="formbg-outer">
+          <div class="formbg">
+            <div class="formbg-inner padding-horizontal--48">
+              <center><span class="padding-bottom--15" style="font-size: 30px; margin-bottom: 20px; font-weight: bold; color: #444444;">E-Wallet</span></center>
+              <form action="{% url 'balance' %}" method="post">
+              <div class="field padding-bottom--24">
+                <label style="font-weight: bold; font-size: large; color: #444444;">Balance</label>
+                <input readonly placeholder="{{bal}}" value="{{bal}}">
+                <input required type="text" name="p_uname" class="form-control" placeholder="{{request.session.Username}}" value="{{request.session.Username}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" style="display: none; visibility: hidden;">
+                <button id="balance">View Balance</button>
+                {% csrf_token %}
+              </div>
+            </form>
+              <form action="{% url 'addmoney' %}" method="post" id="stripe-login">
+                  {% csrf_token %}
+                <div class="field padding-bottom--24">
+                  <div class="grid--50-50">
+                    <span style="padding-bottom: 10px; margin-top: 15px;" for="password">Enter the amount :</span>
+                    <!-- <div class="reset-pass">
+                      <a href="#">Forgot your password?</a>
+                    </div> -->
+                  </div>
+                  <input required oninput="validate_money();" id="moneyy" type="number" name="paisa">
+                  <input required type="text" name="p_uname" class="form-control" placeholder="{{request.session.Username}}" value="{{request.session.Username}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" style="display: none; visibility: hidden;">
+                  <center><span id="val_money" style="color: red;"></span></center>
+                </div>
+                <!-- <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
+                  <label for="checkbox">
+                    <input type="checkbox" name="checkbox"> Stay signed in for a week
+                  </label>
+                </div> -->
+                <div class="field padding-bottom--24">
+                  <input type="submit" name="submit" id="add" value="Add Money">
+                </div>
+                <div class="field">
+                    <center><span style="color: green; font-weight: bold;">{{msg}}</span></center>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- <div class="footer-link padding-top--24">
+            <span class="">Don't have an account? <a href="">Sign up</a></span>
+            <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+              <span><a href="#">© Stackfindover</a></span>
+              <span><a href="#">Contact</a></span>
+              <span><a href="#">Privacy & terms</a></span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div style="position: relative; top: 100px;">
+      <center>
+        <form action="{% url 'addmoney' %}" method="post">
+          {% csrf_token %}
+          <h3>Add money to your wallet</h3>
+          <input type="number" name="paisa" placeholder="Enter the amount" required>
+          <input required type="text" name="p_uname" class="form-control" placeholder="{{request.session.Username}}" value="{{request.session.Username}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" style="display: none; visibility: hidden;">
+          <br>
+          <br> -->
+          <!-- <a href="" class="appointment-btn scrollto" style="margin-top: 10px;">Add</a> -->
+          <!-- <input type="submit" class="appointment-btn scrollto" style="margin-top: 10px;" value="Add"> <br> <br>
+          <span style="color: green;">{{msg}}</span> <br> <br>
+        </form>
+        <form action="{% url 'balance' %}" method="post">
+            {% csrf_token %}
+            <input required type="text" name="p_uname" class="form-control" placeholder="{{request.session.Username}}" value="{{request.session.Username}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" style="display: none; visibility: hidden;">
+            <button type="submit" > View Balance</button>
+            <span>{{bal}}</span>
+        </form>
+      </center>
+  </div> -->
+</body>

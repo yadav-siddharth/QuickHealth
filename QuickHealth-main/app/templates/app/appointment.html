@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>QuickHealth</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+
+  <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+   
+  <link href="{% static '/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body style="background-color: #f1f7fd;">
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto" style="color: #444444;"><a href="{% url 'main' %}" class="logo me-auto"><img src="{% static 'images/pulse3.png' %}" alt="" class="img-fluid"></a> Quick<span style="color: #1977cc;">Health</span></h1>
+      <a href="{% url 'wallet' %}" class="appointment-btn scrollto"> {% csrf_token%}
+        <span class="d-none d-md-inline"></span>Wallet</a>
+      <a href="#" class="appointment-btn scrollto">
+        <span class="d-none d-md-inline"></span>Emergency</a>
+      <a href="{% url 'main' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline"></span>Home</a>
+    </div>
+  </header>
+
+  <!--nav class="navbar navbar-light bg-light" style="margin-top: 70px; margin-left: 600px;">
+    <form class="form-inline" action="{% url 'search' %} " method="post">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" placeholder="Search Doctor " aria-label="Search" name="searched">
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav-->
+
+  <nav class="navbar navbar-light" style="position: relative; top: 80px;">
+    <form class="form-inline" method="post">
+        {% csrf_token %}
+
+        <!-- <div> -->
+
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Doctor" value="{{msg}}" aria-label="Search"
+                name="searched" style="position: relative; left: 520px; top: 1px;" >
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" style="position: relative; left: 790px; bottom: 37px;" formaction="{% url 'search' %}">Search</button>
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" style="position: relative; left: 790px; bottom: 37px;" formaction="{% url 'record' %}"><img src="{% static 'images/mic4.png' %}" alt="" class="img-fluid" style="max-height: 24px;"></button>
+            <!-- <a href="{% url 'record' %}" class="btn btn-outline-secondary my-2 my-sm-0" style="position: relative; left: 790px; bottom: 37px;" >Record</a> -->
+        <!-- </div> -->
+    </form>
+    
+</nav>
+
+
+                <div style="position: relative; top: 30px;">
+                  <section id="services" class="services" style="margin-top: 20px;">
+                    {% if searched %}
+                    <div class="container">
+              
+                      <div class="section-title">
+                        <h2>Doctor</h2>
+                       
+                      </div>
+                        {% for doctor in doct %}
+                      <div class="row">
+                        <div class="icon-box">
+                            <form action="{% url 'zoom' %}" method="post">
+                              {% csrf_token %}
+                            <h4><a href="">{{doctor}} {{doctor.Lastname}}</a></h4>
+                            <p style="font-size: medium;"><br/> Experience : {{doctor.Experience}} years <br/> Speciality : {{doctor.Speciality}} <br/> Consultation Fees : ₹{{doctor.C_fees}} <input type="text" value="{{doctor.Username}}" name="username" style=" display: none; visibility: hidden;"></p><br/>
+                            
+                            <button class="btn btn-secondary" type="submit">
+                            
+                             
+                            
+                              Book a Meet </button>
+                          
+                            </form>
+                        </div>
+                      </div>
+                      <br>
+                      {% endfor %}
+                    {% else %}
+                    <h3 style="margin-bottom: 40px;">
+                      <center>{{msg2}}</center>
+                    </h3>
+                    <center>
+                    <table class="table" style="width: 600px; font-size: 25px; border: 1px solid black">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col"><center>Sr.</center></th>
+                          <th scope="col"><center>Doctor</center></th>
+                          <th scope="col"><center>Description</center></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row"><center>1</center></th>
+                          <td><center>Cardiologist</center></td>
+                          <td><center>Heart Doctor</center></td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><center>2</center></th>
+                          <td><center>Neurologist</center></td>
+                          <td><center>Nerves Doctor</center></td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><center>3</center></th>
+                          <td><center>Dentist</center></td>
+                          <td><center>Teeth Doctor</center></td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><center>4</center></th>
+                          <td><center>ENT</center></td>
+                          <td><center>Ear Nose Throat Doctor</center></td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><center>5</center></th>
+                          <td><center>Orthopedic</center></td>
+                          <td><center>Muscle, Bone Doctor</center></td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><center>6</center></th>
+                          <td><center>Dermatologist</center></td>
+                          <td><center>Skin Doctor</center></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </center>
+
+
+                    {% endif %}  
+
+              
+                    </div>
+                  </section>
+                </div>
+
+                <!-- <script type="text/javascript">
+                    $('.record').click(function(){
+                    
+                        $.ajax(
+                        {
+                            type: "GET",
+                            url: "/record"
+                        }
+                    )
+                  })
+                </script> -->
+</body>
